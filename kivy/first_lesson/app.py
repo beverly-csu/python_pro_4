@@ -22,13 +22,21 @@ class ScrButton(Button):
 class MainScr(Screen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        
-
-
+        vl = BoxLayout(orientation='vertical', padding=8, spacing=8)
+        hl = BoxLayout()
+        txt = Label(text='Выбери экран')
+        vl.add_widget(ScrButton(self, 'down', 'first', text='1'))
+        vl.add_widget(ScrButton(self, 'left', 'second', text='2'))
+        vl.add_widget(ScrButton(self, 'up', 'third', text='3'))
+        vl.add_widget(ScrButton(self, 'right', 'fourth', text='4'))
+        hl.add_widget(txt)
+        hl.add_widget(vl)
+        self.add_widget(hl)
 
 class MyApp(App):
     def build(self):
         sm = ScreenManager()
+        sm.add_widget(MainScr(name='main'))
         return sm
 
 
