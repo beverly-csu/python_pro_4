@@ -45,7 +45,6 @@ class FirstScr(Screen):
         self.add_widget(vl)
 
 
-
 class MyApp(App):
     def build(self):
         sm = ScreenManager()
