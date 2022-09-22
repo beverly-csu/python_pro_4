@@ -33,10 +33,24 @@ class MainScr(Screen):
         hl.add_widget(vl)
         self.add_widget(hl)
 
+
+class FirstScr(Screen):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        vl = BoxLayout(orientation='vertical', size_hint=(0.5, 0.5), pos_hint={'center_x': 0.5, 'center_y': 0.5})
+        btn = Button(text='Выбор: 1', size_hint=(.5, 1), pos_hint={'left': 0})
+        btn_back = ScrButton(self, 'up', 'main', text='Назад', size_hint=(.5, 1), pos_hint={'right': 1})
+        vl.add_widget(btn)
+        vl.add_widget(btn_back)
+        self.add_widget(vl)
+
+
+
 class MyApp(App):
     def build(self):
         sm = ScreenManager()
         sm.add_widget(MainScr(name='main'))
+        sm.add_widget(FirstScr(name='first'))
         return sm
 
 
