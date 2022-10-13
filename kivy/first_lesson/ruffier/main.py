@@ -5,6 +5,7 @@ from kivy.uix.label import Label
 from kivy.uix.button import Button
 from kivy.uix.textinput import TextInput
 from instructions import *
+from ruffier import test
 
 
 name = str()
@@ -136,6 +137,11 @@ class Result(Screen):
         self.instr = Label(text=str())
         self.outer.add_widget(self.instr)
         self.add_widget(self.outer)
+        self.on_enter = self.before
+
+    def before(self):
+        global name
+        self.instr.text = name + '\n' + test(p1, p2, p3, age)
 
 
 class HeartCheck(App):
